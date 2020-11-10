@@ -8,10 +8,7 @@ De 'Fantasy Weapons Store' is een applicatie waarmee je fantasy weapons kan aans
 
 ## Setup
 
-```sh
-git clone https://github.com/TICT-SV2FEP2-20/formatieve-assignment-1.git
-cd formatieve-assignment-1
-```
+Clone dit project op de manier hoe je gewend bent. De URL die hier eerst stond moet je niet gebruiken, deze is niet geldig wegens gebruik van github classrooms.
 
 ### Dependencies
 
