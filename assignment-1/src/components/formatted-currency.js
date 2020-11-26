@@ -26,7 +26,9 @@ class FormattedCurrency extends HTMLElement {
   get value() {
     return this._value
   }
-
+  static get observedAttributes() {
+    return ["value"];
+  }
   attributeChangedCallback(name, oldValue, newValue) {
     switch(name) {
       case 'value':
