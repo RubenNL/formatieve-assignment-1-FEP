@@ -37,7 +37,7 @@ const template = /* html */`
 class ViewProduct extends HTMLElement {
   constructor() {
     super()
-    this.innerHTML = `
+    this.attachShadow({mode:'open'}).innerHTML = `
       <style>${styles}</style>
       <img src="/assets/products/axes/rpg_icons89.png" />
       <div>
@@ -50,8 +50,8 @@ class ViewProduct extends HTMLElement {
   }
 
   displayCorrectCartButton = () => {
-    const addToCartButton = this.querySelector('[data-add-to-cart]')
-    const removeFromCartButton = this.querySelector('[data-remove-from-cart]')
+    const addToCartButton = this.shadowRoot.querySelector('[data-add-to-cart]')
+    const removeFromCartButton = this.shadowRoot.querySelector('[data-remove-from-cart]')
 
     const inCart = cart.containsProductId({ id: this.getAttribute('id') })
     
@@ -84,8 +84,8 @@ class ViewProduct extends HTMLElement {
   connectedCallback() {
     const category = this.getAttribute('category')
     const id = this.getAttribute('id')
-    const addToCartButton = this.querySelector('[data-add-to-cart]')
-    const removeFromCartButton = this.querySelector('[data-remove-from-cart]')
+    const addToCartButton = this.shadowRoot.querySelector('[data-add-to-cart]')
+    const removeFromCartButton = this.shadowRoot.querySelector('[data-remove-from-cart]')
 
     addToCartButton.addEventListener('click', this.addToCartHandler)
     removeFromCartButton.addEventListener('click', this.removeFromCartHandler)
@@ -94,9 +94,9 @@ class ViewProduct extends HTMLElement {
       .then(data => data.products.find(product => product.id === id))
       .then(product => {
         if (product) {
-          const image = this.querySelector('img')
-          const title = this.querySelector('h2')
-          const price = this.querySelector('formatted-currency')
+          const image = this.shadowRoot.querySelector('img')
+          const title = this.shadowRoot.querySelector('h2')
+          const price = this.shadowRoot.querySelector('formatted-currency')
 
           image.src = `/assets/products/${category}/rpg_icons${product.id}.png`
           title.innerText = `${category} - Type ${product.type} (${product.variant})`
@@ -108,7 +108,7 @@ class ViewProduct extends HTMLElement {
   }
 
   disconnectedCallback() {
-    const addToCart = this.querySelector('[data-add-to-cart]')
+    const addToCart = this.shadowRoot.querySelector('[data-add-to-cart]')
     addToCart.removeEventListener('click', this.addToCartHandler)
   }
 }
