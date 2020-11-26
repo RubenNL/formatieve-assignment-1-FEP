@@ -73,6 +73,7 @@ class FWSProductFilter extends HTMLElement {
     this._shadowRoot.innerHTML = template
     this.form = this._shadowRoot.querySelector('form')
     this.toggle = this._shadowRoot.querySelector('[data-toggle]')
+    this._show = false;
   }
 
   set categoryOptions(options) {
@@ -95,6 +96,13 @@ class FWSProductFilter extends HTMLElement {
   }
   get variants() {
     return getSelectedOptionValues(this._shadowRoot.querySelector('[name="variants"]'))
+  }
+  get show() {
+    return this._show;
+  }
+  set show(show) {
+    this._shadowRoot.querySelector('form').style.display=show?"unset":"none";
+    this._show=show;
   }
 
   addOptionsToSelect = (selectElement, options) => {
