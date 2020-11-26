@@ -43,8 +43,8 @@ class CartActions extends HTMLElement {
   }
 
   emitChange = () => {
-    /* Genereer een custom 'change' event, en zorg ervoor dat
-    het wordt dispatched */
+    const event = new CustomEvent('change',{detail:{target:this}});
+    this.dispatchEvent(event);
   }
 
   handleDecrease = () => {

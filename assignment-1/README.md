@@ -14,7 +14,7 @@ Zorg er binnen het `formatted-currency` component voor dat de `attributeChangedC
 
 ## Assignment 1.4
 
-`view-cart.js` bevat het `counter-control` component. Dit component luistert naar een `change` event. Op basis van dit `change` event wordt de functie `handleCartActionChangehandleCartActionChange` uitgevoerd.
+`view-cart.js` bevat het `counter-control` component. Dit component luistert naar een `change` event. Op basis van dit `change` event wordt de functie `handleCartActionChange` uitgevoerd.
 
 Ga naar de file `counter-control.js`. Genereer binnen de functie `emitChange` een custom 'change' event, en zorg ervoor dat het event wordt dispatched.
 
