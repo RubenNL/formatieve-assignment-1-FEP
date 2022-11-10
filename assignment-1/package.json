@@ -12,6 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "livereload": "0.9.1",
-    "serve": "11.3.2"
+    "serve": "14.1.1"
   }
 }
